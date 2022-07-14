@@ -11,20 +11,24 @@ function sumZero(arr) {
 		let num1 = arr[leftIndex];
 		let num2 = arr[rightIndex];
 
-		// if array 1 number left return
-		if (arr.length <= 1) {
-			return;
-		}
+		// loop as long as the array has more than 1 number
+		while (arr.length > 1) {
+			let leftIndex = 0;
+			let rightIndex = arr.length - 1;
+			let num1 = arr[leftIndex];
+			let num2 = arr[rightIndex];
 
-		// if outer numbers sum to 0 return array with this numbers
-		// if sum is positive it means that right number is too big - remove from array
-		// if sum is negative it means that left number is to small - remove from array
-		if (num1 + num2 === 0) {
-			return [num1, num2];
-		} else if (num1 + num2 > 0) {
-			arr.splice(rightIndex, 1);
-		} else if (num1 + num2 < 0) {
-			arr.splice(leftIndex, 1);
+			// if outer numbers sum to 0 return array with this numbers
+			// if sum is positive it means that right number is too big - remove from array
+			// if sum is negative it means that left number is to small - remove from array
+
+			if (num1 + num2 === 0) {
+				return [num1, num2];
+			} else if (num1 + num2 > 0) {
+				arr.splice(rightIndex, 1);
+			} else if (num1 + num2 < 0) {
+				arr.splice(leftIndex, 1);
+			}
 		}
 	}
 }
